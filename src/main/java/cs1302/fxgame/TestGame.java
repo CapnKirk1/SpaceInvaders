@@ -19,6 +19,7 @@ public class TestGame extends Game {
     int move = 1;
     int end = 0;
     int level = 1;
+    int shoot = 0;
     // rectangle to hold the background
     private Rectangle bg = new Rectangle(0, 0, 640, 480) {{ 
          setFill(Color.BLACK); 
@@ -54,186 +55,72 @@ public class TestGame extends Game {
 	setWidth(40);
 	setHeight(5);
 	setTranslateX(30);
-	setTranslateY(20);
+	setTranslateY(23);
 	setFill(Color.LIMEGREEN);
     }};
-        
-    private static Rectangle Alien = new Rectangle() {{
-	    setWidth(20);
+            
+    private static Rectangle Bunker = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
 	    setTranslateX(30);
-	    setTranslateY(50);
-	    setFill(Color.RED);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
-    private static Rectangle Alien2 = new Rectangle() {{
-	    setWidth(20);
+    private static Rectangle Bunker2 = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
-	    setTranslateX(70);
-	    setTranslateY(50);
-	    setFill(Color.RED);
+	    setTranslateX(100);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
-    private static Rectangle Alien3 = new Rectangle() {{
-	    setWidth(20);
+    private static Rectangle Bunker3 = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
-	    setTranslateX(110);
-	    setTranslateY(50);
-	    setFill(Color.RED);
+	    setTranslateX(170);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
-    private static Rectangle Alien4 = new Rectangle() {{
-	    setWidth(20);
+    private static Rectangle Bunker4 = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
-	    setTranslateX(150);
-	    setTranslateY(50);
-	    setFill(Color.RED);
+	    setTranslateX(240);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
-    private static Rectangle Alien5 = new Rectangle() {{
-	    setWidth(20);
+    private static Rectangle Bunker5 = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
-	    setTranslateX(190);
-	    setTranslateY(50);
-	    setFill(Color.RED);
+	    setTranslateX(310);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
-    private static Rectangle Alien6 = new Rectangle() {{
-	    setWidth(20);
+    private static Rectangle Bunker6 = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
-	    setTranslateX(230);
-	    setTranslateY(50);
-	    setFill(Color.RED);
+	    setTranslateX(380);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
-    private static Rectangle Alien7 = new Rectangle() {{
-	    setWidth(20);
+    private static Rectangle Bunker7 = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
-	    setTranslateX(30);
-	    setTranslateY(90);
-	    setFill(Color.YELLOW);
+	    setTranslateX(450);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
-    private static Rectangle Alien8 = new Rectangle() {{
-	    setWidth(20);
+    private static Rectangle Bunker8 = new Rectangle() {{
+	    setWidth(40);
 	    setHeight(20);
-	    setTranslateX(70);
-	    setTranslateY(90);
-	    setFill(Color.YELLOW);
-    }};
-    private static Rectangle Alien9 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(110);
-	    setTranslateY(90);
-	    setFill(Color.YELLOW);
-    }};
-    private static Rectangle Alien10 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(150);
-	    setTranslateY(90);
-	    setFill(Color.YELLOW);
-    }};
-    private static Rectangle Alien11 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(190);
-	    setTranslateY(90);
-	    setFill(Color.YELLOW);
-    }};
-    private static Rectangle Alien12 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(230);
-	    setTranslateY(90);
-	    setFill(Color.YELLOW);
+	    setTranslateX(520);
+	    setTranslateY(430);
+	    setFill(Color.GREEN);
     }};
 
-
-
-
-    private static Rectangle Alien13 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(30);
-	    setTranslateY(130);
-	    setFill(Color.GREEN);
-    }};
-    private static Rectangle Alien14 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(70);
-	    setTranslateY(130);
-	    setFill(Color.GREEN);
-    }};
-    private static Rectangle Alien15 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(110);
-	    setTranslateY(130);
-	    setFill(Color.GREEN);
-    }};
-    private static Rectangle Alien16 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(150);
-	    setTranslateY(130);
-	    setFill(Color.GREEN);
-    }};
-    private static Rectangle Alien17 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(190);
-	    setTranslateY(130);
-	    setFill(Color.GREEN);
-    }};
-    private static Rectangle Alien18 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(230);
-	    setTranslateY(130);
-	    setFill(Color.GREEN);
-    }};
-    private static Rectangle Alien19 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(30);
-	    setTranslateY(170);
-	    setFill(Color.WHITE);
-    }};
-    private static Rectangle Alien20 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(70);
-	    setTranslateY(170);
-	    setFill(Color.WHITE);
-    }};
-    private static Rectangle Alien21 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(110);
-	    setTranslateY(170);
-	    setFill(Color.WHITE);
-    }};
-    private static Rectangle Alien22 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(150);
-	    setTranslateY(170);
-	    setFill(Color.WHITE);
-    }};
-    private static Rectangle Alien23 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(190);
-	    setTranslateY(170);
-	    setFill(Color.WHITE);
-    }};
-    private static Rectangle Alien24 = new Rectangle() {{
-	    setWidth(20);
-	    setHeight(20);
-	    setTranslateX(230);
-	    setTranslateY(170);
-	    setFill(Color.WHITE);
-    }};
-    
-    //String[] Alienz = new String[]{ "Alien","Alien2","Alien3","Alien4","Alien5","Alien6","Alien7","Alien8","Alien9","Alien10","Alien11","Alien12","Alien13","Alien14","Alien15","Alien16","Alien17","Alien18","Alien19","Alien20","Alien21","Alien22","Alien23","Alien24","Alien25","Alien26","Alien27","Alien28","Alien29","Alien30","Alien31","Alien32","Alien33","Alien34","Alien35","Alien36","Alien37","Alien38","Alien39","Alien40","Alien41","Alien42","Alien43","Alien44","Alien45","Alien46","Alien47","Alien48","Alien49","Alien50","Alien51","Alien52","Alien53","Alien54","Alien55" };
 	   static Rectangle[] Aliens = {new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle()}; 
     
+    //static Rectangle[] Bunker = {new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle()};
+
+
     public static void setAliens(){
 	try{
     for(int i = 0; i < 55; i++){
@@ -296,6 +183,15 @@ public class TestGame extends Game {
 	Aliens[i].setFill(Color.WHITE);
 	Aliens[i].setHeight(20);
 	Aliens[i].setWidth(20);
+	Aliens[i].setVisible(true);
+	Bunker.setVisible(true);
+	Bunker2.setVisible(true);
+	Bunker3.setVisible(true);
+	Bunker4.setVisible(true);
+	Bunker5.setVisible(true);
+	Bunker6.setVisible(true);
+	Bunker7.setVisible(true);
+	Bunker8.setVisible(true);
     }
 	}
 	catch(Exception e){
@@ -311,6 +207,13 @@ public class TestGame extends Game {
 	setTranslateY(510);
 	setFill(Color.WHITE);
     }};
+    private Rectangle lazer = new Rectangle() {{
+	setWidth(5);
+	setHeight(20);
+	setTranslateX(30);
+	setTranslateY(510);
+	setFill(Color.RED);
+    }};
     
     int time = 0;
     Timer myTimer = new Timer();
@@ -325,7 +228,17 @@ public class TestGame extends Game {
 			bullet.setTranslateY(510);
 			bullet.setTranslateX(text.getTranslateX());       	 
 		    }
-
+		    for(int i = 0; i < 55; i++){
+			if(lazer.getTranslateY() >= Aliens[i].getTranslateY()){
+			    lazer.setTranslateY(lazer.getTranslateY() + 1);
+			    //System.out.print("|");
+			}
+			if (lazer.getTranslateY() > 500){
+			    lazer.setTranslateY(-20);
+			    //System.out.print("Y");
+			           	 
+			}
+		    }
 		    time = 0;
 		     }catch(Exception e){
 		    System.out.print("Timer Error ");
@@ -485,7 +398,7 @@ public class TestGame extends Game {
 			    System.exit(0);
 			}
 		    }
-		    
+		    shoot = 0;
 		}catch(Exception e){
 		    System.out.print("!");
 		}  
@@ -501,7 +414,7 @@ public class TestGame extends Game {
 	
 	super(stage, "TestGame", 60, 640, 480);
 	try{
-	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  score, timer, bullet, text);
+	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  Bunker,Bunker2,Bunker3,Bunker4,Bunker5,Bunker6,Bunker7,Bunker8, score, timer, bullet, text);
 	    
 	    }catch(Exception e){
 	    System.out.print("!");
@@ -578,9 +491,10 @@ public class TestGame extends Game {
 		//	    bullet.setTranslateY(bullet.getTranslateY() + 480);
 	    }
 	    for(int i = 0; i < 55; i++){
-		if(bullet.getTranslateY() > Aliens[i].getTranslateY() && bullet.getTranslateY() < Aliens[i].getTranslateY() + 20 && bullet.getTranslateX() > Aliens[i].getTranslateX() && bullet.getTranslateX() < Aliens[i].getTranslateX() + 20){
-		    Aliens[i].setTranslateX(1000);
-		    Aliens[i].setTranslateY(1000);
+		if(bullet.getTranslateY() > Aliens[i].getTranslateY() && bullet.getTranslateY() < Aliens[i].getTranslateY() + 20 && bullet.getTranslateX() > Aliens[i].getTranslateX() && bullet.getTranslateX() < Aliens[i].getTranslateX() + 20 && Aliens[i].isVisible()){
+		    Aliens[i].setVisible(false); 
+		    //Aliens[i].setTranslateX(1000);
+		    //Aliens[i].setTranslateY(1000);
 		    time = 1;
 		    System.out.println("PCHCHCWWWOOW");
 		    kills = kills + 10;
@@ -589,63 +503,187 @@ public class TestGame extends Game {
 	    
 	    
 
+	    int rand = (int)(55 * Math.random());
+	    if (Aliens[rand].isVisible() && (move % 2 == 0) && shoot == 0){
+		lazer.setTranslateX(Aliens[rand].getTranslateX());
+		lazer.setTranslateY(Aliens[rand].getTranslateY());
+		System.out.println("Lazer Fired");
+		shoot = 1;
+	    } 
+	    
+	    for(int i = 0; i < 55; i++){
+		if(lazer.getTranslateY() > text.getTranslateY() && lazer.getTranslateY() < text.getTranslateY() + 400 && lazer.getTranslateX() > text.getTranslateX() && lazer.getTranslateX() < text.getTranslateX() + 400){
+		    System.out.println("Life Lost!");
+		}
+	    }
+	    
+	    if(bullet.getTranslateY() > Bunker.getTranslateY() && bullet.getTranslateY() < Bunker.getTranslateY() + 40 && bullet.getTranslateX() > Bunker.getTranslateX() && bullet.getTranslateX() < Bunker.getTranslateX() + 40 && Bunker.isVisible()){
+		Bunker.setVisible(false);
+	    }
+	    if(bullet.getTranslateY() > Bunker2.getTranslateY() && bullet.getTranslateY() < Bunker2.getTranslateY() + 40 && bullet.getTranslateX() > Bunker2.getTranslateX() && bullet.getTranslateX() < Bunker2.getTranslateX() + 40 && Bunker2.isVisible()){
+		Bunker2.setVisible(false);
+	    }
+	    if(bullet.getTranslateY() > Bunker3.getTranslateY() && bullet.getTranslateY() < Bunker3.getTranslateY() + 40 && bullet.getTranslateX() > Bunker3.getTranslateX() && bullet.getTranslateX() < Bunker3.getTranslateX() + 40 && Bunker3.isVisible()){
+		Bunker3.setVisible(false);
+	    }
+	    if(bullet.getTranslateY() > Bunker4.getTranslateY() && bullet.getTranslateY() < Bunker4.getTranslateY() + 40 && bullet.getTranslateX() > Bunker4.getTranslateX() && bullet.getTranslateX() < Bunker4.getTranslateX() + 40 && Bunker4.isVisible()){
+		Bunker4.setVisible(false);
+	    }
+	    if(bullet.getTranslateY() > Bunker5.getTranslateY() && bullet.getTranslateY() < Bunker5.getTranslateY() + 40 && bullet.getTranslateX() > Bunker5.getTranslateX() && bullet.getTranslateX() < Bunker5.getTranslateX() + 40 && Bunker5.isVisible()){
+		Bunker5.setVisible(false);
+	    }
+	    if(bullet.getTranslateY() > Bunker6.getTranslateY() && bullet.getTranslateY() < Bunker6.getTranslateY() + 40 && bullet.getTranslateX() > Bunker6.getTranslateX() && bullet.getTranslateX() < Bunker6.getTranslateX() + 40 && Bunker6.isVisible()){
+		Bunker6.setVisible(false);
+	    }
+	    if(bullet.getTranslateY() > Bunker7.getTranslateY() && bullet.getTranslateY() < Bunker7.getTranslateY() + 40 && bullet.getTranslateX() > Bunker7.getTranslateX() && bullet.getTranslateX() < Bunker7.getTranslateX() + 40 && Bunker7.isVisible()){
+		Bunker7.setVisible(false);
+	    }
+	    if(bullet.getTranslateY() > Bunker8.getTranslateY() && bullet.getTranslateY() < Bunker8.getTranslateY() + 40 && bullet.getTranslateX() > Bunker8.getTranslateX() && bullet.getTranslateX() < Bunker8.getTranslateX() + 40 && Bunker8.isVisible()){
+		Bunker8.setVisible(false);
+	    }
+
+
+	    
+	    
+	}
+	
+	
+	catch(Exception e){
+	    System.out.print("!");
+	}	    
+    
+    } // update
+} // TestGame
+
+
+
+
+
+    /*
+    private static Rectangle Alien9 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(110);
+	    setTranslateY(90);
+	    setFill(Color.YELLOW);
+    }};
+    private static Rectangle Alien10 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(150);
+	    setTranslateY(90);
+	    setFill(Color.YELLOW);
+    }};
+    private static Rectangle Alien11 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(190);
+	    setTranslateY(90);
+	    setFill(Color.YELLOW);
+    }};
+    private static Rectangle Alien12 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(230);
+	    setTranslateY(90);
+	    setFill(Color.YELLOW);
+    }};
+
+
+
+
+    private static Rectangle Alien13 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(30);
+	    setTranslateY(130);
+	    setFill(Color.GREEN);
+    }};
+    private static Rectangle Alien14 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(70);
+	    setTranslateY(130);
+	    setFill(Color.GREEN);
+    }};
+    private static Rectangle Alien15 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(110);
+	    setTranslateY(130);
+	    setFill(Color.GREEN);
+    }};
+    private static Rectangle Alien16 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(150);
+	    setTranslateY(130);
+	    setFill(Color.GREEN);
+    }};
+    private static Rectangle Alien17 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(190);
+	    setTranslateY(130);
+	    setFill(Color.GREEN);
+    }};
+    private static Rectangle Alien18 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(230);
+	    setTranslateY(130);
+	    setFill(Color.GREEN);
+    }};
+    private static Rectangle Alien19 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(30);
+	    setTranslateY(170);
+	    setFill(Color.WHITE);
+    }};
+    private static Rectangle Alien20 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(70);
+	    setTranslateY(170);
+	    setFill(Color.WHITE);
+    }};
+    private static Rectangle Alien21 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(110);
+	    setTranslateY(170);
+	    setFill(Color.WHITE);
+    }};
+    private static Rectangle Alien22 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(150);
+	    setTranslateY(170);
+	    setFill(Color.WHITE);
+    }};
+    private static Rectangle Alien23 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(190);
+	    setTranslateY(170);
+	    setFill(Color.WHITE);
+    }};
+    private static Rectangle Alien24 = new Rectangle() {{
+	    setWidth(20);
+	    setHeight(20);
+	    setTranslateX(230);
+	    setTranslateY(170);
+	    setFill(Color.WHITE);
+    }};
+    */    
+    //String[] Alienz = new String[]{ "Alien","Alien2","Alien3","Alien4","Alien5","Alien6","Alien7","Alien8","Alien9","Alien10","Alien11","Alien12","Alien13","Alien14","Alien15","Alien16","Alien17","Alien18","Alien19","Alien20","Alien21","Alien22","Alien23","Alien24","Alien25","Alien26","Alien27","Alien28","Alien29","Alien30","Alien31","Alien32","Alien33","Alien34","Alien35","Alien36","Alien37","Alien38","Alien39","Alien40","Alien41","Alien42","Alien43","Alien44","Alien45","Alien46","Alien47","Alien48","Alien49","Alien50","Alien51","Alien52","Alien53","Alien54","Alien55" };
+
+
+
+
 	    /*    
-	    if(bullet.getTranslateY() > Alien.getTranslateY() && bullet.getTranslateY() < Alien.getTranslateY() + 20 && bullet.getTranslateX() > Alien.getTranslateX() && bullet.getTranslateX() < Alien.getTranslateX() + 20){
-		Alien.setTranslateX(1000);
-		Alien.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 400;
-	    }
-	    if(bullet.getTranslateY() > Alien2.getTranslateY() && bullet.getTranslateY() < Alien2.getTranslateY() + 20 && bullet.getTranslateX() > Alien2.getTranslateX() && bullet.getTranslateX() < Alien2.getTranslateX() + 20){
-		Alien2.setTranslateX(1000);
-		Alien2.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 400;
-	    }
-	    if(bullet.getTranslateY() > Alien3.getTranslateY() && bullet.getTranslateY() < Alien3.getTranslateY() + 20 && bullet.getTranslateX() > Alien3.getTranslateX() && bullet.getTranslateX() < Alien3.getTranslateX() + 20){
-		Alien3.setTranslateX(1000);
-		Alien3.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 400;
-	    }
-	    if(bullet.getTranslateY() > Alien4.getTranslateY() && bullet.getTranslateY() < Alien4.getTranslateY() + 20 && bullet.getTranslateX() > Alien4.getTranslateX() && bullet.getTranslateX() < Alien4.getTranslateX() + 20){
-		Alien4.setTranslateX(1000);
-		Alien4.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 400;
-	    }
-	    if(bullet.getTranslateY() > Alien5.getTranslateY() && bullet.getTranslateY() < Alien5.getTranslateY() + 20 && bullet.getTranslateX() > Alien5.getTranslateX() && bullet.getTranslateX() < Alien5.getTranslateX() + 20){
-		Alien5.setTranslateX(1000);
-		Alien5.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 400;
-	    }
-	    if(bullet.getTranslateY() > Alien6.getTranslateY() && bullet.getTranslateY() < Alien6.getTranslateY() + 20 && bullet.getTranslateX() > Alien6.getTranslateX() && bullet.getTranslateX() < Alien6.getTranslateX() + 20){
-		Alien6.setTranslateX(1000);
-		Alien6.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 400;
-	    }
-	    if(bullet.getTranslateY() > Alien7.getTranslateY() && bullet.getTranslateY() < Alien7.getTranslateY() + 20 && bullet.getTranslateX() > Alien7.getTranslateX() && bullet.getTranslateX() < Alien7.getTranslateX() + 20){
-		Alien7.setTranslateX(1000);
-		Alien7.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 300;
-	    }
-	    if(bullet.getTranslateY() > Alien8.getTranslateY() && bullet.getTranslateY() < Alien8.getTranslateY() + 20 && bullet.getTranslateX() > Alien8.getTranslateX() && bullet.getTranslateX() < Alien8.getTranslateX() + 20){
-		Alien8.setTranslateX(1000);
-		Alien8.setTranslateY(1000);
-		time = 1;
-		System.out.println("PCHCHCWWWOOW");
-		kills = kills + 300;
-	    }
+
 	    if(bullet.getTranslateY() > Alien9.getTranslateY() && bullet.getTranslateY() < Alien9.getTranslateY() + 20 && bullet.getTranslateX() > Alien9.getTranslateX() && bullet.getTranslateX() < Alien9.getTranslateX() + 20){
 		Alien9.setTranslateX(1000);
 		Alien9.setTranslateY(1000);
@@ -768,14 +806,3 @@ public class TestGame extends Game {
 	    }
 
 */
-	    
-	    
-	    
-	    
-	    	}catch(Exception e){
-	    System.out.print("!");
-	    }	    
-	
-    } // update
-} // TestGame
-

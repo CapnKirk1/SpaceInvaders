@@ -1,4 +1,4 @@
-package cs1302.fxgame;
+lspackage cs1302.fxgame;
 
 import com.michaelcotterell.game.Game;
 import com.michaelcotterell.game.GameTime;
@@ -19,6 +19,7 @@ public class TestGame extends Game {
     int move = 1;
     int end = 0;
     int level = 1;
+    int moveAmount = 10;
     // rectangle to hold the background
     private Rectangle bg = new Rectangle(0, 0, 640, 480) {{ 
          setFill(Color.BLACK); 
