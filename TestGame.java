@@ -20,27 +20,38 @@ public class TestGame extends Game {
     int end = 0;
     int level = 1;
     int shoot = 0;
+    int rand;
+    int lives = 3;
     // rectangle to hold the background
     private Rectangle bg = new Rectangle(0, 0, 640, 480) {{ 
          setFill(Color.BLACK); 
     }};
 
     // some text to display the time
+
+
+    private Text health = new Text() {{
+	setTranslateX(300);
+	setTranslateY(20);
+	setFill(Color.YELLOWGREEN);
+    }};
+
     private Text text = new Text() {{
          setTranslateX(10);
          setTranslateY(470);
          setFill(Color.YELLOWGREEN);
     }};
+
     private Text timer = new Text() {{
          setTranslateX(10);
          setTranslateY(20);
          setFill(Color.YELLOWGREEN);
     }};
     private Text score = new Text() {{
-         setTranslateX(500);
-         setTranslateY(20);
-         setFill(Color.YELLOWGREEN);
-	 
+	setTranslateX(500);
+	setTranslateY(20);
+	setFill(Color.YELLOWGREEN);
+	
     }};
     private int kills = 0;
     /*
@@ -228,17 +239,17 @@ public class TestGame extends Game {
 			bullet.setTranslateY(510);
 			bullet.setTranslateX(text.getTranslateX());       	 
 		    }
-		    for(int i = 0; i < 55; i++){
-			if(lazer.getTranslateY() >= Aliens[i].getTranslateY()){
-			    lazer.setTranslateY(lazer.getTranslateY() + 1);
-			    //System.out.print("|");
-			}
-			if (lazer.getTranslateY() > 500){
-			    lazer.setTranslateY(-20);
-			    //System.out.print("Y");
-			           	 
-			}
+		    //for(int i = 0; i < 55; i++){
+		    if(lazer.getTranslateY() >= Aliens[rand].getTranslateY()){
+			lazer.setTranslateY(lazer.getTranslateY() + 1);
+			//System.out.print("|");
 		    }
+		    if (lazer.getTranslateY() > 500){
+			lazer.setTranslateY(-20);
+			//System.out.print("Y");
+			
+		    }
+		    //}
 		    time = 0;
 		     }catch(Exception e){
 		    System.out.print("Timer Error ");
@@ -414,7 +425,7 @@ public class TestGame extends Game {
 	
 	super(stage, "TestGame", 60, 640, 480);
 	try{
-	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  Bunker,Bunker2,Bunker3,Bunker4,Bunker5,Bunker6,Bunker7,Bunker8, score, timer, bullet, text);
+	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  Bunker,Bunker2,Bunker3,Bunker4,Bunker5,Bunker6,Bunker7,Bunker8, score, health, timer, bullet, text);
 	    
 	    }catch(Exception e){
 	    System.out.print("!");
@@ -467,6 +478,7 @@ public class TestGame extends Game {
 		kills = 0;
 		if (level != 7){
 			level = level + 1;
+			lives = lives +1;
 			
 		}	
 		if (level == 7){
@@ -474,7 +486,7 @@ public class TestGame extends Game {
 		}
 	    }
 		
-	    
+	    health.setText("Lives: " + lives);
 	    score.setText("Score: "+ kills);
 	    timer.setText("Time: " + (gameTime.getTotalGameTime()));
 	    text.setText("/o/|^|\\o\\");//"Time: " + (gameTime.getTotalGameTime()));
@@ -503,7 +515,7 @@ public class TestGame extends Game {
 	    
 	    
 
-	    int rand = (int)(55 * Math.random());
+	    rand = (int)(55 * Math.random());
 	    if (Aliens[rand].isVisible() && (move % 2 == 0) && shoot == 0){
 		lazer.setTranslateX(Aliens[rand].getTranslateX());
 		lazer.setTranslateY(Aliens[rand].getTranslateY());
@@ -512,33 +524,36 @@ public class TestGame extends Game {
 	    } 
 	    
 	    for(int i = 0; i < 55; i++){
-		if(lazer.getTranslateY() > text.getTranslateY() && lazer.getTranslateY() < text.getTranslateY() + 400 && lazer.getTranslateX() > text.getTranslateX() && lazer.getTranslateX() < text.getTranslateX() + 400){
+		if(lazer.getTranslateY() > text.getTranslateY() && lazer.getTranslateY() < text.getTranslateY() + 40 && lazer.getTranslateX() > text.getTranslateX() && lazer.getTranslateX() < text.getTranslateX() + 40){
 		    System.out.println("Life Lost!");
+		    lazer.setTranslateY(-20);
+		    lives = lives - 1;
 		}
 	    }
 	    
-	    if(bullet.getTranslateY() > Bunker.getTranslateY() && bullet.getTranslateY() < Bunker.getTranslateY() + 40 && bullet.getTranslateX() > Bunker.getTranslateX() && bullet.getTranslateX() < Bunker.getTranslateX() + 40 && Bunker.isVisible()){
+
+	    if(bullet.getTranslateY() > Bunker.getTranslateY() && bullet.getTranslateY() < Bunker.getTranslateY() + 40 && bullet.getTranslateX() > Bunker.getTranslateX() && bullet.getTranslateX() < Bunker.getTranslateX() + 40 && Bunker.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker.setVisible(false);
 	    }
-	    if(bullet.getTranslateY() > Bunker2.getTranslateY() && bullet.getTranslateY() < Bunker2.getTranslateY() + 40 && bullet.getTranslateX() > Bunker2.getTranslateX() && bullet.getTranslateX() < Bunker2.getTranslateX() + 40 && Bunker2.isVisible()){
+	    if(bullet.getTranslateY() > Bunker2.getTranslateY() && bullet.getTranslateY() < Bunker2.getTranslateY() + 40 && bullet.getTranslateX() > Bunker2.getTranslateX() && bullet.getTranslateX() < Bunker2.getTranslateX() + 40 && Bunker2.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker2.setVisible(false);
 	    }
-	    if(bullet.getTranslateY() > Bunker3.getTranslateY() && bullet.getTranslateY() < Bunker3.getTranslateY() + 40 && bullet.getTranslateX() > Bunker3.getTranslateX() && bullet.getTranslateX() < Bunker3.getTranslateX() + 40 && Bunker3.isVisible()){
+	    if(bullet.getTranslateY() > Bunker3.getTranslateY() && bullet.getTranslateY() < Bunker3.getTranslateY() + 40 && bullet.getTranslateX() > Bunker3.getTranslateX() && bullet.getTranslateX() < Bunker3.getTranslateX() + 40 && Bunker3.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker3.setVisible(false);
 	    }
-	    if(bullet.getTranslateY() > Bunker4.getTranslateY() && bullet.getTranslateY() < Bunker4.getTranslateY() + 40 && bullet.getTranslateX() > Bunker4.getTranslateX() && bullet.getTranslateX() < Bunker4.getTranslateX() + 40 && Bunker4.isVisible()){
+	    if(bullet.getTranslateY() > Bunker4.getTranslateY() && bullet.getTranslateY() < Bunker4.getTranslateY() + 40 && bullet.getTranslateX() > Bunker4.getTranslateX() && bullet.getTranslateX() < Bunker4.getTranslateX() + 40 && Bunker4.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker4.setVisible(false);
 	    }
-	    if(bullet.getTranslateY() > Bunker5.getTranslateY() && bullet.getTranslateY() < Bunker5.getTranslateY() + 40 && bullet.getTranslateX() > Bunker5.getTranslateX() && bullet.getTranslateX() < Bunker5.getTranslateX() + 40 && Bunker5.isVisible()){
+	    if(bullet.getTranslateY() > Bunker5.getTranslateY() && bullet.getTranslateY() < Bunker5.getTranslateY() + 40 && bullet.getTranslateX() > Bunker5.getTranslateX() && bullet.getTranslateX() < Bunker5.getTranslateX() + 40 && Bunker5.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker5.setVisible(false);
 	    }
-	    if(bullet.getTranslateY() > Bunker6.getTranslateY() && bullet.getTranslateY() < Bunker6.getTranslateY() + 40 && bullet.getTranslateX() > Bunker6.getTranslateX() && bullet.getTranslateX() < Bunker6.getTranslateX() + 40 && Bunker6.isVisible()){
+	    if(bullet.getTranslateY() > Bunker6.getTranslateY() && bullet.getTranslateY() < Bunker6.getTranslateY() + 40 && bullet.getTranslateX() > Bunker6.getTranslateX() && bullet.getTranslateX() < Bunker6.getTranslateX() + 40 && Bunker6.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker6.setVisible(false);
 	    }
-	    if(bullet.getTranslateY() > Bunker7.getTranslateY() && bullet.getTranslateY() < Bunker7.getTranslateY() + 40 && bullet.getTranslateX() > Bunker7.getTranslateX() && bullet.getTranslateX() < Bunker7.getTranslateX() + 40 && Bunker7.isVisible()){
+	    if(bullet.getTranslateY() > Bunker7.getTranslateY() && bullet.getTranslateY() < Bunker7.getTranslateY() + 40 && bullet.getTranslateX() > Bunker7.getTranslateX() && bullet.getTranslateX() < Bunker7.getTranslateX() + 40 && Bunker7.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker7.setVisible(false);
 	    }
-	    if(bullet.getTranslateY() > Bunker8.getTranslateY() && bullet.getTranslateY() < Bunker8.getTranslateY() + 40 && bullet.getTranslateX() > Bunker8.getTranslateX() && bullet.getTranslateX() < Bunker8.getTranslateX() + 40 && Bunker8.isVisible()){
+	    if(bullet.getTranslateY() > Bunker8.getTranslateY() && bullet.getTranslateY() < Bunker8.getTranslateY() + 40 && bullet.getTranslateX() > Bunker8.getTranslateX() && bullet.getTranslateX() < Bunker8.getTranslateX() + 40 && Bunker8.isVisible() || lazer.getTranslateY() > Bunker.getTranslateY() && lazer.getTranslateY() < Bunker.getTranslateY() + 20 && lazer.getTranslateX() > Bunker.getTranslateX() && lazer.getTranslateX() < Bunker.getTranslateX() + 40){
 		Bunker8.setVisible(false);
 	    }
 
