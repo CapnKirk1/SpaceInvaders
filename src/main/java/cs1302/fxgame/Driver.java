@@ -35,7 +35,7 @@ public class Driver extends Application {
 	BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 	 BorderPane root = new BorderPane();
 	root.setBackground(new Background(backgroundImage));
-	Label title = new Label("Space Invaders");
+	Label title = new Label("Space Invaders\n\n          by \n\n Seth and Chance");
 	//title.setFont(Font.loadFont("file:resources/zephyrean_brk", 18));
 	title.setTextFill(Color.YELLOW);
 	root.setCenter(title);

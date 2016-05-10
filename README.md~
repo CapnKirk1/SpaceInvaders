@@ -1,9 +1,4 @@
 # CSCI 1302 - FXGame (cs1302-fxgame)
-#Project Submission
-Author 1: Seth Kirksey 180
-Author 2: Chancellor Owens 506
-#Game description
-To play this game, first you will need to press any key to get past the animated intro, then you can use the left and right arrow keys to move and space to shoot. Kill all the aliens to get to the next level. If the aliens hit you three times then the game is over.
 
 This repository contains skeleton code for a project or assignment in
 the CSCI 1302 class at the University of Georgia. Please read the 

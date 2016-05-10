@@ -22,11 +22,17 @@ public class TestGame extends Game {
     int shoot = 0;
     int rand;
     int lives = 3;
-    int speed = 10;
+    int speed = 5;
     int mom = 0;
+    int moveCount = 20;
     // rectangle to hold the background
     private Rectangle bg = new Rectangle(0, 0, 640, 480) {{ 
          setFill(Color.BLACK); 
+    }};
+
+    private Rectangle gameOver = new Rectangle(0, 0, 640, 480) {{ 
+         setFill(Color.BLACK);
+	 setVisible(false);
     }};
 
     // some text to display the time
@@ -272,14 +278,14 @@ public class TestGame extends Game {
 		try{
 
 		  
-		    if(move > 0 && move < 10){
+		    if(move > 0 && move < moveCount){
 		    for(int i = 0; i < 55; i++){
-			Aliens[i].setTranslateX(Aliens[i].getTranslateX() + 10);
+			Aliens[i].setTranslateX(Aliens[i].getTranslateX() + speed);
 		    }
 		   
 			move = move + 1;
 		    }
-		    if(move == 10){
+		    if(move == moveCount){
 			for(int i = 0; i < 55; i++){
 			Aliens[i].setTranslateY(Aliens[i].getTranslateY() + 20);
 			}
@@ -288,15 +294,15 @@ public class TestGame extends Game {
 
 		    }
 
-		    if(move >=10 && move < 20){
+		    if(move >= moveCount && move < (moveCount*2)){
 		    for(int i = 0; i < 55; i++){
-			Aliens[i].setTranslateX(Aliens[i].getTranslateX() - 10);
+			Aliens[i].setTranslateX(Aliens[i].getTranslateX() - speed);
 		    }
 		   
 			move = move + 1;
 
 		    }
-		    if(move == 20){
+		    if(move == (moveCount*2)){
 		    for(int i = 0; i < 55; i++){
 			Aliens[i].setTranslateY(Aliens[i].getTranslateY() + 20);
 		    }
@@ -304,6 +310,9 @@ public class TestGame extends Game {
 			move = 1;
 			end ++;
 			if(end == 5){
+			    gameOver.setVisible(true);
+			    text.setText("GAME OVER");
+			    
 			    System.out.println("GAME OVER");
 			    System.exit(0);
 			}
@@ -324,7 +333,7 @@ public class TestGame extends Game {
 	
 	super(stage, "TestGame", 60, 640, 480);
 	try{
-	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  Bunker,Bunker2,Bunker3,Bunker4,Bunker5,Bunker6,Bunker7,Bunker8, score, health, timer, bullet, text, lazer);
+	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  Bunker,Bunker2,Bunker3,Bunker4,Bunker5,Bunker6,Bunker7,Bunker8, score, health, timer, bullet, gameOver, text, lazer);
 	    
 	    }catch(Exception e){
 	    System.out.print("!");
@@ -336,38 +345,41 @@ public class TestGame extends Game {
 	try{
 	    while(initial == 0){
 		myTimer.scheduleAtFixedRate(timerTask,1,1);
+		myTimer2.scheduleAtFixedRate(timerTask2,1000,1000);
 		initial = 1;
 		setAliens();
 	    }
 	    if (initial == 1){
 		if (level == 1){
-		    myTimer2.scheduleAtFixedRate(timerTask2,1000,1000);
+
 		    initial = 2;
 		}
 		if (level == 2){
-		    myTimer2.cancel();
-		    System.out.println("level 2"); 
-		    myTimer2.scheduleAtFixedRate(timerTask2,1000,500);
+		    speed = 10;
+		    moveCount = 10;
+		    System.out.println("level 2");
+
 		    initial = 2;
 		}
 		if (level == 3){
-		    myTimer2.cancel();
-		    myTimer2.scheduleAtFixedRate(timerTask2,1000,50);
+		    speed = 20;
+		    moveCount = 5;
 		    initial = 2;
 		}
 		
 		
 	    }
-	    if(kills == 100){
+	    if(kills == 550){
 		System.out.println("YOU WIN");
-		//setAliens();
+		setAliens();
 		move = 1;
 		initial = 1;
 		kills = 0;
 		level++;
+		lives++;
 	    }
 		
-	    health.setText("Lives: " + lives);
+	    health.setText("Lives: " + lives + "Level: " + level);
 	    score.setText("Score: "+ (kills + mom));
 	    timer.setText("Time: " + (gameTime.getTotalGameTime()));
 	    text.setText("/o/|^|\\o\\");//"Time: " + (gameTime.getTotalGameTime()));
@@ -401,7 +413,7 @@ public class TestGame extends Game {
 	    }
 	    
 	    
-	    System.out.println("UPDATEING");
+	    //System.out.println("UPDATEING");
 	    
 	    rand = (int)(55 * Math.random());
 	    if (Aliens[rand].isVisible() && (move % 2 == 0) && shoot == 0){
@@ -419,6 +431,11 @@ public class TestGame extends Game {
 		    System.out.println("Life Lost!");
 		    lazer.setTranslateY(-20);
 		    lives = lives - 1;
+		    if (lives == 0){
+			gameOver.setVisible(true);
+			text.setText("GAME OVER");
+			System.exit(0);
+		    }
 		}
 	    }
 	    
@@ -454,10 +471,11 @@ public class TestGame extends Game {
 	}
 	
 	
-	catch(Exception e){
-	    System.out.print("?");
-	}	    
-    
+ 	catch(Exception e){
+ 	    System.out.print("?");
+ 	}
+	
+	
     } // update
 } // TestGame
 

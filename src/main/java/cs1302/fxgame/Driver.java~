@@ -25,7 +25,7 @@ public class Driver extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Game game = new TestGame(primaryStage);
+        //Game game = new TestGame(primaryStage);
 	/*
 	  Animated game intro vvvvvv
 	*/
@@ -35,7 +35,7 @@ public class Driver extends Application {
 	BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 	 BorderPane root = new BorderPane();
 	root.setBackground(new Background(backgroundImage));
-	Label title = new Label("Space Invaders");
+	Label title = new Label("Space Invaders\n\n          by \n\n Seth and Chance");
 	//title.setFont(Font.loadFont("file:resources/zephyrean_brk", 18));
 	title.setTextFill(Color.YELLOW);
 	root.setCenter(title);
@@ -45,18 +45,21 @@ public class Driver extends Application {
 	/*
 	  Animated game intro ^^^^^^
 	*/
-        primaryStage.setTitle(game.getTitle());
+        //primaryStage.setTitle(game.getTitle());
 	introScene.setOnKeyPressed( new EventHandler<KeyEvent>(){
+		 Game game = new TestGame(primaryStage);
             @Override
 		public void handle( KeyEvent keyEvent )
 		{
 		    primaryStage.setScene(game.getScene());
+		    // primaryStage.show();
+		     game.run();
 		}
 	    } );
 	
 	   
         primaryStage.show();
-        game.run();
+        //game.run();
     } // start
     
     public static void main(String[] args) {

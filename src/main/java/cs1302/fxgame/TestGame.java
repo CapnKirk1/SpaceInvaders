@@ -29,10 +29,16 @@ public class TestGame extends Game {
     private Rectangle bg = new Rectangle(0, 0, 640, 480) {{ 
          setFill(Color.BLACK); 
     }};
+    
+    private Rectangle gameOver = new Rectangle(0, 0, 640, 480) {{ 
+         setFill(Color.BLACK);
+	 setVisible(false);
+    }};
 
-    // some text to display the time
+    
 
-
+    // All of these instantiate objects used for the game such as the score, 
+    // bunkers, aliens, or mothership.
     private Text health = new Text() {{
 	setTranslateX(300);
 	setTranslateY(20);
@@ -134,7 +140,10 @@ public class TestGame extends Game {
     
     //static Rectangle[] Bunker = {new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle(),new Rectangle()};
 
-
+    /**
+      setAliens sets the aliens to their starting positions and also resets them
+      to those positions when the level is increased.
+     */
     public static void setAliens(){
 	try{
     for(int i = 0; i < 55; i++){
@@ -272,7 +281,7 @@ public class TestGame extends Game {
 	        public void run(){
 		try{
 
-		  
+		    //these if statements set the movements for the aliens.
 		    if(move > 0 && move < moveCount){
 		    for(int i = 0; i < 55; i++){
 			Aliens[i].setTranslateX(Aliens[i].getTranslateX() + speed);
@@ -305,6 +314,9 @@ public class TestGame extends Game {
 			move = 1;
 			end ++;
 			if(end == 5){
+			    gameOver.setVisible(true);
+			    text.setText("GAME OVER");
+			    
 			    System.out.println("GAME OVER");
 			    System.exit(0);
 			}
@@ -325,7 +337,7 @@ public class TestGame extends Game {
 	
 	super(stage, "TestGame", 60, 640, 480);
 	try{
-	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  Bunker,Bunker2,Bunker3,Bunker4,Bunker5,Bunker6,Bunker7,Bunker8, score, health, timer, bullet, text, lazer);
+	    getSceneNodes().getChildren().addAll(bg, Mother, Aliens[0], Aliens[1], Aliens[2], Aliens[3], Aliens[4], Aliens[5], Aliens[6], Aliens[7], Aliens[8], Aliens[9], Aliens[10], Aliens[11], Aliens[12], Aliens[13], Aliens[14], Aliens[15], Aliens[16], Aliens[17], Aliens[18], Aliens[19], Aliens[20], Aliens[21], Aliens[22], Aliens[23], Aliens[24], Aliens[25], Aliens[26], Aliens[27], Aliens[28], Aliens[29], Aliens[30], Aliens[31], Aliens[32], Aliens[33], Aliens[34], Aliens[35], Aliens[36], Aliens[37], Aliens[38], Aliens[39], Aliens[40], Aliens[41], Aliens[42], Aliens[43], Aliens[44], Aliens[45], Aliens[46], Aliens[47], Aliens[48], Aliens[49], Aliens[50], Aliens[51], Aliens[52], Aliens[53], Aliens[54],  Bunker,Bunker2,Bunker3,Bunker4,Bunker5,Bunker6,Bunker7,Bunker8, score, health, timer, bullet, gameOver, text, lazer);
 	    
 	    }catch(Exception e){
 	    System.out.print("!");
@@ -365,9 +377,9 @@ public class TestGame extends Game {
 		System.out.println("YOU WIN");
 		setAliens();
 		move = 1;
-		initial = 1;
-		kills = 0;
-		level++;
+		initial = 1;       //if the player kills all the aliens then
+ 		kills = 0;         //the levels and lives increases and the 
+      		level++;           //aliens are reset.
 		lives++;
 	    }
 		
@@ -387,16 +399,16 @@ public class TestGame extends Game {
 	    if (bullet.getTranslateY() < 0){
 		//	    bullet.setTranslateY(bullet.getTranslateY() + 480);
 	    }
+	    //these statements are for when a players bullet hits an alien
 	    for(int i = 0; i < 55; i++){
 		if(bullet.getTranslateY() > Aliens[i].getTranslateY() && bullet.getTranslateY() < Aliens[i].getTranslateY() + 20 && bullet.getTranslateX() > Aliens[i].getTranslateX() && bullet.getTranslateX() < Aliens[i].getTranslateX() + 20 && Aliens[i].isVisible()){
 		    Aliens[i].setVisible(false); 
-		    //Aliens[i].setTranslateX(1000);
-		    //Aliens[i].setTranslateY(1000);
 		    time = 1;
 		    System.out.println("PCHCHCWWWOOW");
 		    kills = kills + 10;
 		}
 	    }
+	    //when the player hits the mother ship.
 	    if(bullet.getTranslateY() > Mother.getTranslateY() && bullet.getTranslateY() < Mother.getTranslateY() + 20 && bullet.getTranslateX() > Mother.getTranslateX() && bullet.getTranslateX() < Mother.getTranslateX() + 20 && Mother.isVisible()){
 		
 		Mother.setTranslateX(-40);
@@ -405,8 +417,8 @@ public class TestGame extends Game {
 	    }
 	    
 	    
-	    //System.out.println("UPDATEING");
 	    
+	    //sets the aliens to fire randomly
 	    rand = (int)(55 * Math.random());
 	    if (Aliens[rand].isVisible() && (move % 2 == 0) && shoot == 0){
 		lazer.setTranslateX(Aliens[rand].getTranslateX());
@@ -417,12 +429,17 @@ public class TestGame extends Game {
 		    Mother.setTranslateX(-39);
 		}
 	    } 
-	    
+	    //detects if the aliens lazer hits the player or a bunker
 	    for(int i = 0; i < 55; i++){
 		if(lazer.getTranslateY() > text.getTranslateY() && lazer.getTranslateY() < text.getTranslateY() + 40 && lazer.getTranslateX() > text.getTranslateX() && lazer.getTranslateX() < text.getTranslateX() + 40){
 		    System.out.println("Life Lost!");
 		    lazer.setTranslateY(-20);
 		    lives = lives - 1;
+		    if (lives == 0){
+			gameOver.setVisible(true);
+			text.setText("GAME OVER");
+			System.exit(0);
+		    }
 		}
 	    }
 	    
